@@ -1,0 +1,105 @@
+# Source systems for Corporate Insurance Platform data ingestion
+
+source_systems:
+  policy_management:
+    name: "Guidewire PolicyCenter"
+    type: "jdbc"
+    driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    host: "${PC_DB_HOST}"
+    port: 1433
+    database: "${PC_DB_NAME}"
+    schema: "dbo"
+    tables:
+      - policy
+      - policy_period
+      - coverage
+      - policy_location
+      - policy_line
+      - premium_audit
+    incremental_column: "UpdateTime"
+    watermark_table: "bronze.watermarks"
+
+  claims_management:
+    name: "Guidewire ClaimCenter"
+    type: "jdbc"
+    driver: "com.microsoft.sqlserver.jdbc.SQLServerDriver"
+    host: "${CC_DB_HOST}"
+    port: 1433
+    database: "${CC_DB_NAME}"
+    schema: "dbo"
+    tables:
+      - claim
+      - claim_contact
+      - exposure
+      - reserve
+      - transaction
+      - check_item
+    incremental_column: "UpdateTime"
+    watermark_table: "bronze.watermarks"
+
+  billing:
+    name: "Guidewire BillingCenter"
+    type: "jdbc"
+    host: "${BC_DB_HOST}"
+    port: 1433
+    database: "${BC_DB_NAME}"
+    tables:
+      - account
+      - invoice
+      - payment
+      - invoice_item
+    incremental_column: "UpdateTime"
+
+  crm:
+    name: "Salesforce CRM"
+    type: "rest_api"
+    base_url: "${SALESFORCE_URL}"
+    auth_type: "oauth2"
+    client_id: "${SALESFORCE_CLIENT_ID}"
+    client_secret: "${SALESFORCE_CLIENT_SECRET}"
+    objects:
+      - Account
+      - Contact
+      - Opportunity
+      - Lead
+    batch_size: 2000
+
+  reinsurance:
+    name: "AS400 Reinsurance"
+    type: "jdbc"
+    driver: "com.ibm.as400.access.AS400JDBCDriver"
+    host: "${AS400_HOST}"
+    tables:
+      - REINSCONT
+      - REINSPREM
+      - REINSCLAIM
+    incremental_column: "LUPDATE"
+
+  market_data:
+    name: "External Market Data"
+    type: "rest_api"
+    base_url: "${MARKET_DATA_URL}"
+    auth_type: "api_key"
+    api_key: "${MARKET_DATA_API_KEY}"
+    endpoints:
+      - /rates/exchange
+      - /indices/insurance
+      - /risk/natural_catastrophe
+
+  regulatory:
+    name: "IVASS Regulatory"
+    type: "sftp"
+    host: "${IVASS_SFTP_HOST}"
+    path: "/outbound/insure_co"
+    file_pattern: "*.csv"
+    encoding: "UTF-8"
+
+line_of_business_mapping:
+  property: ["PROP", "FIRE", "CAR", "TECH"]
+  liability: ["GL", "PL", "DO", "EO", "PO"]
+  marine: ["CARGO", "HULL", "YACHT"]
+  engineering: ["CAR", "EAR", "MBDOWN", "ELEC"]
+  credit_surety: ["CREDIT", "SURETY", "BOND"]
+  cyber: ["CYBER", "TECHEL"]
+  aviation: ["AVIA"]
+  accident_health: ["PA", "HEALTH"]

@@ -1,0 +1,53 @@
+model: "claude-opus-4-8"
+max_tokens: 8096
+temperature: 0
+
+orchestrator:
+  name: "FabricOrchestrator"
+  description: "Coordinates all data platform agents for Corporate Insurance Platform"
+  max_iterations: 10
+  timeout_seconds: 3600
+
+agents:
+  ingestion:
+    name: "IngestionAgent"
+    description: "Extracts data from insurance source systems into Bronze lakehouse"
+    max_parallel_tasks: 5
+    retry_attempts: 3
+    retry_delay_seconds: 30
+
+  transformation:
+    name: "TransformationAgent"
+    description: "Transforms Bronze to Silver and Silver to Gold applying business rules"
+    spark_session_required: true
+    checkpoint_enabled: true
+
+  quality:
+    name: "QualityAgent"
+    description: "Validates data quality at each medallion layer using Great Expectations"
+    fail_on_critical: true
+    alert_on_warning: true
+    quality_threshold: 0.95
+
+  ai_readiness:
+    name: "AIReadinessAgent"
+    description: "Prepares feature stores and training datasets for ML/AI use cases"
+    feature_store_enabled: true
+    drift_detection: true
+
+  visualization:
+    name: "VisualizationAgent"
+    description: "Manages Power BI semantic models and auto-generates reports"
+    auto_refresh: true
+    refresh_schedule: "0 6 * * *"
+
+tools:
+  - name: "execute_fabric_pipeline"
+  - name: "query_lakehouse"
+  - name: "validate_data_quality"
+  - name: "run_spark_notebook"
+  - name: "publish_semantic_model"
+  - name: "check_pipeline_status"
+  - name: "send_alert"
+  - name: "create_feature_table"
+  - name: "register_data_asset"
