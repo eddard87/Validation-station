@@ -1,0 +1,47 @@
+workspace:
+  name: "generali-corporate-commercial"
+  id: "${FABRIC_WORKSPACE_ID}"
+
+onelake:
+  account_name: "onelake"
+  endpoint: "https://onelake.dfs.fabric.microsoft.com"
+
+lakehouse:
+  bronze:
+    name: "lh_bronze_generali"
+    id: "${FABRIC_LAKEHOUSE_BRONZE_ID}"
+  silver:
+    name: "lh_silver_generali"
+    id: "${FABRIC_LAKEHOUSE_SILVER_ID}"
+  gold:
+    name: "lh_gold_generali"
+    id: "${FABRIC_LAKEHOUSE_GOLD_ID}"
+
+warehouse:
+  name: "wh_generali_dwh"
+  id: "${FABRIC_WAREHOUSE_ID}"
+  connection_string: "${FABRIC_WAREHOUSE_CONNECTION_STRING}"
+
+semantic_model:
+  name: "sm_generali_corporate"
+  id: "${FABRIC_SEMANTIC_MODEL_ID}"
+
+data_factory:
+  pipeline_prefix: "pl_generali"
+  trigger_prefix: "tr_generali"
+
+spark:
+  cluster_size: "Large"
+  dynamic_allocation: true
+  delta_optimized_write: true
+  auto_optimize: true
+
+storage:
+  retention_days:
+    bronze: 90
+    silver: 365
+    gold: 1825
+  partition_strategy:
+    bronze: ["year", "month", "day", "source_system"]
+    silver: ["year", "month", "line_of_business"]
+    gold: ["year", "line_of_business"]
