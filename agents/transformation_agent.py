@@ -20,7 +20,7 @@ class TransformationAgent(BaseAgent):
 
     @property
     def system_prompt(self) -> str:
-        return """You are an expert AI data engineer for Generali Corporate Commercial (insurance).
+        return """You are an expert AI data engineer for Corporate Insurance Platform (insurance).
 You are the TRANSFORMATION AGENT responsible for the Bronze→Silver→Gold medallion pipeline.
 
 Bronze→Silver rules:

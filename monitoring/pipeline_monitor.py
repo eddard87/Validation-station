@@ -9,7 +9,7 @@ logger = structlog.get_logger(__name__)
 
 class PipelineMonitor:
     """
-    Collects and exposes metrics for the Generali data platform pipeline runs.
+    Collects and exposes metrics for the InsureCo data platform pipeline runs.
     In production connects to Azure Monitor / Fabric monitoring APIs.
     """
 

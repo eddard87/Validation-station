@@ -4,7 +4,7 @@ temperature: 0
 
 orchestrator:
   name: "FabricOrchestrator"
-  description: "Coordinates all data platform agents for Generali Corporate Commercial"
+  description: "Coordinates all data platform agents for Corporate Insurance Platform"
   max_iterations: 10
   timeout_seconds: 3600
 

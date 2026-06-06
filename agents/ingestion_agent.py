@@ -10,8 +10,8 @@ from fabric.pipeline import PipelineClient
 
 logger = structlog.get_logger(__name__)
 
-GENERALI_INSURANCE_DOMAIN = """
-You are an expert AI data engineer for Generali Corporate Commercial, a leading corporate insurance company.
+INSURECO_INSURANCE_DOMAIN = """
+You are an expert AI data engineer for Corporate Insurance Platform, a leading corporate insurance company.
 You specialise in Microsoft Fabric and the ingestion of insurance data from source systems including
 Guidewire PolicyCenter, ClaimCenter, BillingCenter, Salesforce CRM, and AS400 reinsurance systems.
 
@@ -43,7 +43,7 @@ class IngestionAgent(BaseAgent):
 
     @property
     def system_prompt(self) -> str:
-        return f"""{GENERALI_INSURANCE_DOMAIN}
+        return f"""{INSURECO_INSURANCE_DOMAIN}
 
 Your role is the INGESTION AGENT. You are responsible for:
 1. Determining which source tables need to be ingested (full load vs incremental)

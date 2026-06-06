@@ -1,11 +1,11 @@
 #!/bin/bash
-# Generali CC AI Data Platform — Prototype launcher
+# InsureCo AI Data Platform — Prototype launcher
 set -e
 
 cd "$(dirname "$0")"
 
 echo "========================================================"
-echo " Generali Corporate Commercial · AI Data Platform"
+echo " Corporate Insurance Platform · AI Data Platform"
 echo " Prototype launcher"
 echo "========================================================"
 

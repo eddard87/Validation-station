@@ -1,5 +1,5 @@
 workspace:
-  name: "generali-corporate-commercial"
+  name: "insure-co-platform"
   id: "${FABRIC_WORKSPACE_ID}"
 
 onelake:
@@ -8,27 +8,27 @@ onelake:
 
 lakehouse:
   bronze:
-    name: "lh_bronze_generali"
+    name: "lh_bronze_insure_co"
     id: "${FABRIC_LAKEHOUSE_BRONZE_ID}"
   silver:
-    name: "lh_silver_generali"
+    name: "lh_silver_insure_co"
     id: "${FABRIC_LAKEHOUSE_SILVER_ID}"
   gold:
-    name: "lh_gold_generali"
+    name: "lh_gold_insure_co"
     id: "${FABRIC_LAKEHOUSE_GOLD_ID}"
 
 warehouse:
-  name: "wh_generali_dwh"
+  name: "wh_insure_co_dwh"
   id: "${FABRIC_WAREHOUSE_ID}"
   connection_string: "${FABRIC_WAREHOUSE_CONNECTION_STRING}"
 
 semantic_model:
-  name: "sm_generali_corporate"
+  name: "sm_insure_co"
   id: "${FABRIC_SEMANTIC_MODEL_ID}"
 
 data_factory:
-  pipeline_prefix: "pl_generali"
-  trigger_prefix: "tr_generali"
+  pipeline_prefix: "pl_insure_co"
+  trigger_prefix: "tr_insure_co"
 
 spark:
   cluster_size: "Large"

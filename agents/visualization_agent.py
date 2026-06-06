@@ -13,17 +13,17 @@ class VisualizationAgent(BaseAgent):
     def __init__(self, config: dict, fabric_config: dict) -> None:
         super().__init__(
             name="VisualizationAgent",
-            description="Manages Power BI semantic models and auto-generates Generali insurance reports",
+            description="Manages Power BI semantic models and auto-generates InsureCo insurance reports",
             config=config,
         )
         self._fabric_cfg = fabric_config
 
     @property
     def system_prompt(self) -> str:
-        return """You are an expert Power BI and data visualisation engineer for Generali Corporate Commercial.
+        return """You are an expert Power BI and data visualisation engineer for Corporate Insurance Platform.
 You are the VISUALIZATION AGENT, responsible for the BI and reporting layer on Microsoft Fabric.
 
-Key dashboards and reports for Generali Corporate Commercial:
+Key dashboards and reports for Corporate Insurance Platform:
 1. UNDERWRITING DASHBOARD - written premium, GWP by LoB, new business vs renewal, rate changes
 2. CLAIMS DASHBOARD - loss ratio by LoB/country, large losses, catastrophe events, IBNR trends
 3. PORTFOLIO DASHBOARD - TIV concentration, geographic exposure, industry concentration

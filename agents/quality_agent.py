@@ -22,7 +22,7 @@ class QualityAgent(BaseAgent):
 
     @property
     def system_prompt(self) -> str:
-        return f"""You are an expert data quality engineer for Generali Corporate Commercial (insurance).
+        return f"""You are an expert data quality engineer for Corporate Insurance Platform (insurance).
 You are the QUALITY AGENT, responsible for validating data at Bronze, Silver, and Gold layers.
 
 Quality threshold: {self._quality_threshold * 100}% — fail runs below this.

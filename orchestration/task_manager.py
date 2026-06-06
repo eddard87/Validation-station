@@ -69,7 +69,7 @@ class Task:
 
 class TaskManager:
     """
-    Manages a DAG of tasks for the Generali data platform pipeline.
+    Manages a DAG of tasks for the InsureCo data platform pipeline.
     Handles dependency resolution, retries, and execution tracking.
     """
 

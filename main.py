@@ -1,5 +1,5 @@
 """
-Generali Corporate Commercial - AI Data Platform
+Corporate Insurance Platform - AI Data Platform
 Entry point for running the OrchestratorAgent from the command line.
 
 Usage:
@@ -68,7 +68,7 @@ def run_daily_pipeline() -> None:
 
 
 def main() -> None:
-    parser = argparse.ArgumentParser(description="Generali AI Data Platform CLI")
+    parser = argparse.ArgumentParser(description="InsureCo AI Data Platform CLI")
     parser.add_argument("--task", type=str, help="Natural language task for the OrchestratorAgent")
     parser.add_argument("--pipeline", choices=["daily"], help="Run a pre-defined pipeline")
     parser.add_argument("--health", action="store_true", help="Check platform health")

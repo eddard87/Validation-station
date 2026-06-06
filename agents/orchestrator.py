@@ -17,7 +17,7 @@ logger = structlog.get_logger(__name__)
 
 class OrchestratorAgent(BaseAgent):
     """
-    Central coordinator for the Generali Corporate Commercial data platform.
+    Central coordinator for the Corporate Insurance Platform data platform.
     Decomposes high-level data platform tasks into sub-agent calls and
     manages the end-to-end Bronze→Silver→Gold→AI pipeline.
     """
@@ -25,7 +25,7 @@ class OrchestratorAgent(BaseAgent):
     def __init__(self, config: dict, fabric_config: dict) -> None:
         super().__init__(
             name="OrchestratorAgent",
-            description="Coordinates all data platform agents for Generali Corporate Commercial",
+            description="Coordinates all data platform agents for Corporate Insurance Platform",
             config=config,
         )
         self._fabric_cfg = fabric_config
@@ -40,7 +40,7 @@ class OrchestratorAgent(BaseAgent):
 
     @property
     def system_prompt(self) -> str:
-        return """You are the ORCHESTRATOR AGENT for the Generali Corporate Commercial AI Data Platform on Microsoft Fabric.
+        return """You are the ORCHESTRATOR AGENT for the Corporate Insurance Platform AI Data Platform on Microsoft Fabric.
 You are the top-level coordinator that decomposes complex data platform requests into concrete steps
 executed by specialised sub-agents.
 
@@ -239,7 +239,7 @@ Principles:
         if not skip_refresh:
             result = self._run_sub_agent(
                 "visualization",
-                "Refresh the Generali Corporate semantic model. Check report freshness. "
+                "Refresh the Corporate Insurance semantic model. Check report freshness. "
                 "Alert on any stale reports.",
             )
             steps_completed.append("bi_refresh") if result["status"] == "succeeded" else steps_failed.append("bi_refresh")
@@ -254,7 +254,7 @@ Principles:
 
     def _get_platform_health(self) -> dict:
         return {
-            "platform": "Generali Corporate Commercial - Microsoft Fabric",
+            "platform": "Corporate Insurance Platform - Microsoft Fabric",
             "agents": {name: agent.status.value for name, agent in self._agents.items()},
             "bronze_lakehouse": "healthy",
             "silver_lakehouse": "healthy",

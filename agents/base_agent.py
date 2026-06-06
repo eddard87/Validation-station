@@ -57,7 +57,7 @@ class AgentResult:
 
 class BaseAgent(ABC):
     """
-    Abstract base for all Generali Fabric platform agents.
+    Abstract base for all InsureCo Fabric platform agents.
     Each agent uses Claude with tool use to reason about and execute data tasks.
     """
 

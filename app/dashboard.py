@@ -1,5 +1,5 @@
 """
-Generali Corporate Commercial - AI Data Platform
+Corporate Insurance Platform - AI Data Platform
 Prototype dashboard — runs fully locally.
 """
 from __future__ import annotations
@@ -33,7 +33,7 @@ from data.mock_data import (
 
 # ── Page config ──────────────────────────────────────────────────────────────
 st.set_page_config(
-    page_title="Generali CC · AI Data Platform",
+    page_title="InsureCo · AI Data Platform",
     page_icon="🦁",
     layout="wide",
     initial_sidebar_state="expanded",
@@ -60,7 +60,7 @@ st.markdown("""
 
 # ── Sidebar ───────────────────────────────────────────────────────────────────
 with st.sidebar:
-    st.markdown("## 🦁 Generali CC")
+    st.markdown("## 🦁 InsureCo")
     st.markdown("**AI Data Platform**")
     st.divider()
 
@@ -79,7 +79,7 @@ with st.sidebar:
 
     st.divider()
     st.markdown("**Fabric Workspace**")
-    st.code("generali-corporate", language=None)
+    st.code("insure-co", language=None)
 
     api_key_set = bool(os.environ.get("ANTHROPIC_API_KEY"))
     if api_key_set:
@@ -95,7 +95,7 @@ with st.sidebar:
 # ═══════════════════════════════════════════════════════════════════════════
 if page == "📊 Portfolio Overview":
     st.title("📊 Portfolio Overview")
-    st.caption("Generali Corporate Commercial · YTD 2025")
+    st.caption("Corporate Insurance Platform · YTD 2025")
 
     kpis = get_portfolio_kpis()
 
@@ -311,7 +311,7 @@ elif page == "💬 Agent Chat":
             {
                 "role": "assistant",
                 "content": (
-                    "Ciao! Sono l'**OrchestratorAgent** di Generali Corporate Commercial.\n\n"
+                    "Ciao! Sono l'**OrchestratorAgent** di Corporate Insurance Platform.\n\n"
                     "Coordino l'intero stack dati su Microsoft Fabric: ingestione dai sistemi "
                     "Guidewire, trasformazioni Bronze→Silver→Gold, validazione qualità, "
                     "feature store ML, e refresh dei modelli Power BI.\n\n"
@@ -499,7 +499,7 @@ elif page == "✅ Data Quality":
 # ═══════════════════════════════════════════════════════════════════════════
 elif page == "🧠 Feature Store":
     st.title("🧠 AI Feature Store")
-    st.caption("Generali CC · 5 use case ML · Microsoft Fabric Gold Layer")
+    st.caption("InsureCo · 5 use case ML · Microsoft Fabric Gold Layer")
 
     features = get_feature_store_summary()
 

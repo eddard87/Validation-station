@@ -1,4 +1,4 @@
-# Source systems for Generali Corporate Commercial data ingestion
+# Source systems for Corporate Insurance Platform data ingestion
 
 source_systems:
   policy_management:
@@ -90,7 +90,7 @@ source_systems:
     name: "IVASS Regulatory"
     type: "sftp"
     host: "${IVASS_SFTP_HOST}"
-    path: "/outbound/generali"
+    path: "/outbound/insure_co"
     file_pattern: "*.csv"
     encoding: "UTF-8"
 

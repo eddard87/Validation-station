@@ -13,17 +13,17 @@ class AIReadinessAgent(BaseAgent):
     def __init__(self, config: dict, fabric_config: dict) -> None:
         super().__init__(
             name="AIReadinessAgent",
-            description="Prepares feature stores and training datasets for Generali AI/ML use cases",
+            description="Prepares feature stores and training datasets for InsureCo AI/ML use cases",
             config=config,
         )
         self._fabric_cfg = fabric_config
 
     @property
     def system_prompt(self) -> str:
-        return """You are an expert MLOps and AI data engineer for Generali Corporate Commercial (insurance).
+        return """You are an expert MLOps and AI data engineer for Corporate Insurance Platform (insurance).
 You are the AI READINESS AGENT, responsible for making data AI-ready in Microsoft Fabric.
 
-Key AI/ML use cases for Generali Corporate Commercial:
+Key AI/ML use cases for Corporate Insurance Platform:
 1. CLAIM PROPENSITY MODEL - predict probability of a claim being filed per policy
    Features: policy_age_days, total_insured_value, line_of_business, country_of_risk,
              historical_loss_ratio, industry_code, premium_rate_adequacy, broker_tier

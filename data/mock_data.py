@@ -1,5 +1,5 @@
 """
-Mock insurance data for Generali Corporate Commercial prototype.
+Mock insurance data for Corporate Insurance Platform prototype.
 Realistic Italian/European corporate insurance portfolio.
 """
 from __future__ import annotations
